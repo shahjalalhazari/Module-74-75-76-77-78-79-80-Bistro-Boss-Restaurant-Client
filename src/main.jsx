@@ -1,19 +1,13 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import ReactDOM from "react-dom/client";
 import './index.css'
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App/>,
-  },
-]);
+import { RouterProvider } from "react-router-dom";
+import { router } from "./Routes/Routes.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <div className="max-w-screen-[1920px]">
+      <RouterProvider router={router} />
+    </div>
   </React.StrictMode>
 );
