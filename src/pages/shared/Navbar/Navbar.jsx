@@ -40,7 +40,7 @@ const Navbar = () => {
     </div>
   );
   return (
-    <div className="flex justify-between bg-black text-white px-10 md:px-14">
+    <div className="nav-container">
       <div className="flex">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

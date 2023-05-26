@@ -1,29 +1,29 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
-import slide1 from "../../../assets/home/01.jpg";
-import slide2 from "../../../assets/home/02.jpg";
-import slide3 from "../../../assets/home/03.png";
-import slide4 from "../../../assets/home/04.jpg";
-import slide5 from "../../../assets/home/05.png";
+import slider1 from "../../../assets/home/01.jpg";
+import slider2 from "../../../assets/home/02.jpg";
+import slider3 from "../../../assets/home/03.png";
+import slider4 from "../../../assets/home/04.jpg";
+import slider5 from "../../../assets/home/05.png";
 
 const Banner = () => {
   return (
     <Carousel className="w-full">
       <div>
-        <img src={slide1} />
+        <img src={slider1} />
       </div>
       <div>
-        <img src={slide2} />
+        <img src={slider2} />
       </div>
       <div>
-        <img src={slide3} />
+        <img src={slider3} />
       </div>
       <div>
-        <img src={slide4} />
+        <img src={slider4} />
       </div>
       <div>
-        <img src={slide5} />
+        <img src={slider5} />
       </div>
     </Carousel>
   );
