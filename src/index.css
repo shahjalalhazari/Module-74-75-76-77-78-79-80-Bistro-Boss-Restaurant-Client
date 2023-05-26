@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap');
+
+
+:root {
+    font-family: 'Raleway', sans-serif;
+}
+
+.cinzel {
+    font-family: 'Cinzel', serif;
+}
+
+.inter {
+    font-family: 'Inter', sans-serif;
+}
