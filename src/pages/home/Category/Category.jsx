@@ -17,7 +17,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const Category = () => {
   return (
-    <div className="my-12 md:mx-[300px] text-white mt-20">
+    <section className="my-12 md:mx-72 text-white mt-20">
       <SectionTitle
         key=""
         heading="Order Online"
@@ -99,7 +99,7 @@ const Category = () => {
           </div>
         </SwiperSlide>
       </Swiper>
-    </div>
+    </section>
   );
 };
 

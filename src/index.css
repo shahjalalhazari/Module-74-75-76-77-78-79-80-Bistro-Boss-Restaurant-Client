@@ -27,6 +27,12 @@
     @apply text-yellow text-lg;
 }
 
+/* Button Styles */
+.primary-btn {
+    @apply text-navy-blue border-b-4 text-xl px-[30px] py-5 rounded-lg;
+
+}
+
 
 /* Navbar Style */
 .nav-container {
