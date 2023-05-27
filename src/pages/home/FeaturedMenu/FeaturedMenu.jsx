@@ -13,7 +13,7 @@ const FeaturedMenu = () => {
   }, []);
   console.log(menuItems);
   return (
-    <section className="my-12 md:mx-72 mt-20">
+    <section className="my-12 mx-8 md:mx-72 mt-20">
       <SectionTitle heading="FROM OUR MENU" subHeading="Check it out" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {menuItems.slice(0, 6).map((singleItem) => (

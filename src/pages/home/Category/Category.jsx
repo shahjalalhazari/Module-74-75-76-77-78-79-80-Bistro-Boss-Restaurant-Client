@@ -17,7 +17,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const Category = () => {
   return (
-    <section className="my-12 md:mx-72 text-white mt-20">
+    <section className="my-12 mx-8 md:mx-72 text-white mt-20">
       <SectionTitle
         key=""
         heading="Order Online"
@@ -37,10 +37,10 @@ const Category = () => {
           <img src={slide1} alt="" />
           <div className="absolute bottom-6 left-20 ">
             <div className="relative">
-              <h3 className="text-3xl absolute text-black uppercase cinzel bottom-0 shadow-xl">
+              <h3 className="md:text-3xl absolute text-black uppercase cinzel bottom-0 shadow-xl">
                 Salads
               </h3>
-              <h3 className="text-3xl absolute uppercase cinzel bottom-[3px] shadow-xl">
+              <h3 className="md:text-3xl absolute uppercase cinzel bottom-[3px] shadow-xl">
                 Salads
               </h3>
             </div>
