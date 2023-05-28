@@ -14,7 +14,11 @@ const FeaturedMenu = () => {
   console.log(menuItems);
   return (
     <section className="my-container">
-      <SectionTitle heading="FROM OUR MENU" subHeading="Check it out" />
+      <SectionTitle
+        heading="FROM OUR MENU"
+        subHeading="Check it out"
+        color="navy-blue"
+      />
       <div className="two-cols">
         {menuItems.slice(0, 6).map((singleItem) => (
           <HorizontalCard key={singleItem._id} menuItem={singleItem} />

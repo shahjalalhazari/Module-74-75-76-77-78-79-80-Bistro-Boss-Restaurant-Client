@@ -20,7 +20,7 @@
 
 /* Heading Styles */
 .heading {
-    @apply text-black text-2xl md:text-4xl uppercase mt-4 mb-12 py-6 border-y-4 border-gray w-9/12 md:w-1/2 mx-auto
+    @apply text-2xl md:text-4xl uppercase mt-4 mb-12 py-6 border-y-4 border-gray w-9/12 md:w-1/2 mx-auto
 }
 
 .sub-heading {
@@ -34,6 +34,10 @@
 
 .add-to-cart-btn {
     @apply text-yellow bg-gray border-b-4 text-xl px-[30px] uppercase py-5 rounded-lg hover:bg-navy-blue hover:border-b-4 hover:border-navy-blue;
+}
+
+.white-btn {
+    @apply text-white border-b-4 border-white text-xl uppercase px-[30px] py-5 rounded-lg hover:text-navy-blue hover:bg-white
 }
 
 

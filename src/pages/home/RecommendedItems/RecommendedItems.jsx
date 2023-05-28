@@ -13,11 +13,15 @@ const RecommendedItems = () => {
   console.log(recommendedItems);
   return (
     <section className="my-container">
-      <SectionTitle heading="CHEF RECOMMENDS" subHeading="Should Try" />
+      <SectionTitle
+        heading="CHEF RECOMMENDS"
+        subHeading="Should Try"
+        color="navy-blue"
+      />
 
       <div className="three-cols">
         {recommendedItems.slice(0, 3).map((item) => (
-          <ItemCard key={item._id} data={item}/>
+          <ItemCard key={item._id} data={item} />
         ))}
       </div>
     </section>

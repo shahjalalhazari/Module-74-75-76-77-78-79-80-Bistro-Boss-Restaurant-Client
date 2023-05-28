@@ -17,11 +17,11 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const Category = () => {
   return (
-    <section className="my-container text-white">
+    <section className="my-container">
       <SectionTitle
-        key=""
         heading="Order Online"
         subHeading="From 11:00am to 10:00pm"
+        color="navy-blue"
       />
       <Swiper
         slidesPerView={3}
@@ -31,7 +31,7 @@ const Category = () => {
           clickable: true,
         }}
         modules={[FreeMode, Pagination]}
-        className="mySwiper"
+        className="mySwiper text-white"
       >
         <SwiperSlide className="relative">
           <img src={slide1} alt="" />
