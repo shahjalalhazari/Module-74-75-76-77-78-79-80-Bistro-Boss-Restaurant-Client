@@ -29,7 +29,7 @@
 
 /* Button Styles */
 .primary-btn {
-    @apply text-navy-blue border-b-4 text-xl uppercase px-[30px] py-5 rounded-lg;
+    @apply text-navy-blue border-b-4 border-navy-blue text-xl uppercase px-[30px] py-5 rounded-lg hover:text-white hover:bg-navy-blue;
 }
 
 .add-to-cart-btn {

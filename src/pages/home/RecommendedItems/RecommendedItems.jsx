@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import ItemCard from "../../../components/ItemCard/ItemCard";
 
 const RecommendedItems = () => {
   const [recommendedItems, setRecommendedItems] = useState([]);
@@ -16,18 +17,7 @@ const RecommendedItems = () => {
 
       <div className="three-cols">
         {recommendedItems.slice(0, 3).map((item) => (
-          <div className="bg-[#f3f3f3]" key={item._id}>
-            <figure className="">
-              <img src={item.image} alt="Caeser Salad" className="" />
-            </figure>
-            <div className="text-center p-8">
-              <h2 className="item-title">{item.name}</h2>
-              <p>{item.recipe}</p>
-              <div className="mt-6">
-                <button className="add-to-cart-btn">add to cart</button>
-              </div>
-            </div>
-          </div>
+          <ItemCard key={item._id} data={item}/>
         ))}
       </div>
     </section>
