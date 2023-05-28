@@ -11,7 +11,6 @@ const FeaturedMenu = () => {
       .then((res) => res.json())
       .then((data) => setMenuItems(data));
   }, []);
-  console.log(menuItems);
   return (
     <section className="my-container">
       <SectionTitle

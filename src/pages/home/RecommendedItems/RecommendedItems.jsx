@@ -10,7 +10,6 @@ const RecommendedItems = () => {
       .then((res) => res.json())
       .then((data) => setRecommendedItems(data));
   }, []);
-  console.log(recommendedItems);
   return (
     <section className="my-container">
       <SectionTitle

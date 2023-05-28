@@ -47,7 +47,7 @@
     @apply md:my-12 mx-8 md:mx-72 mt-10 md:mt-20;
 }
 .three-cols {
-    @apply grid grid-cols-1 md:grid-cols-3 gap-x-6;
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 md:mb-20;
 }
 
 .two-cols {
