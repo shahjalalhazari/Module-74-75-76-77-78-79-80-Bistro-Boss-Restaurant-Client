@@ -20,7 +20,7 @@
 
 /* Heading Styles */
 .heading {
-    @apply text-black text-4xl uppercase mt-4 mb-12 py-6 border-y-4 border-gray w-1/2 mx-auto
+    @apply text-black text-2xl md:text-4xl uppercase mt-4 mb-12 py-6 border-y-4 border-gray w-9/12 md:w-1/2 mx-auto
 }
 
 .sub-heading {
@@ -29,12 +29,36 @@
 
 /* Button Styles */
 .primary-btn {
-    @apply text-navy-blue border-b-4 text-xl px-[30px] py-5 rounded-lg;
-
+    @apply text-navy-blue border-b-4 text-xl uppercase px-[30px] py-5 rounded-lg;
 }
+
+.add-to-cart-btn {
+    @apply text-yellow bg-gray border-b-4 text-xl px-[30px] uppercase py-5 rounded-lg hover:bg-navy-blue hover:border-b-4 hover:border-navy-blue;
+}
+
+
+
+/* Layout Style */
+.my-container {
+    @apply md:my-12 mx-8 md:mx-72 mt-10 md:mt-20;
+}
+.three-cols {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-x-6;
+}
+
+.two-cols {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
 
 
 /* Navbar Style */
 .nav-container {
     @apply flex justify-between bg-black bg-opacity-50 text-white px-10 md:px-14 fixed z-10 w-full;
+}
+
+
+/* Card Items */
+.item-title {
+    @apply text-black text-2xl font-semibold mb-2;
 }

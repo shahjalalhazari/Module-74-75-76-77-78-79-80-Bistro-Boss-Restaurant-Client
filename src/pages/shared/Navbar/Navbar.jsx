@@ -25,18 +25,20 @@ const Navbar = () => {
           <img src={cart} alt="" className="h-11" />
         </Link>
       </li>
-      <li>
-        <Link to="">SIGN OUT</Link>
-      </li>
-      <li>
-        <Link to="">
-          <img
-            src="https://img.freepik.com/free-icon/user_318-824560.jpg?w=360"
-            alt=""
-            className="w-9 h-9 rounded-full"
-          />
-        </Link>
-      </li>
+      <div className="flex items-center">
+        <li>
+          <Link to="">SIGN OUT</Link>
+        </li>
+        <li>
+          <Link to="">
+            <img
+              src="https://img.freepik.com/free-icon/user_318-824560.jpg?w=360"
+              alt=""
+              className="w-9 h-9 rounded-full"
+            />
+          </Link>
+        </li>
+      </div>
     </div>
   );
   return (
@@ -46,7 +48,7 @@ const Navbar = () => {
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-8 w-8 mt-8"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -61,7 +63,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 w-52 text-black"
           >
             {navListItems}
           </ul>

@@ -17,7 +17,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const Category = () => {
   return (
-    <section className="my-12 mx-8 md:mx-72 text-white mt-20">
+    <section className="my-container text-white">
       <SectionTitle
         key=""
         heading="Order Online"
