@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import AboutUsBanner from "../AboutUsBanner/AboutUsBanner";
 import Banner from "../Banner/Banner";
 import Category from "../Category/Category";
@@ -10,14 +11,19 @@ import Testimonials from "../Testimonials/Testimonials";
 const Home = () => {
   return (
     <>
+      {/* React Helmet for dynamic page title */}
+      <Helmet>
+        <title>Home | Bistro Boss Restaurant</title>
+      </Helmet>
+
       <Banner />
       <Category />
-      <AboutUsBanner/>
+      <AboutUsBanner />
       <FeaturedMenu />
       <PhoneNumber />
       <RecommendedItems />
       <FeaturedBanner />
-      <Testimonials/>
+      <Testimonials />
     </>
   );
 };

@@ -69,7 +69,7 @@ const Navbar = () => {
             {navListItems}
           </ul>
         </div>
-        <Link to="">
+        <Link to="/">
           <img src={textLogo} alt="" className="h-[75px] my-3" />
         </Link>
       </div>
