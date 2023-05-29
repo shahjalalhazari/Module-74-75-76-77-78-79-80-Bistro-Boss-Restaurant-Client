@@ -1,24 +1,25 @@
 import { Link } from "react-router-dom";
 import cart from "../../../assets/cart.png";
 import textLogo from "../../../assets/text-logo.png";
+import ActiveLink from "../../../components/ActiveLink/ActiveLink";
 
 const Navbar = () => {
   const navListItems = (
     <div className="font-medium md:flex">
       <li>
-        <Link to="">HOME</Link>
+        <ActiveLink to="/">HOME</ActiveLink>
       </li>
       <li>
-        <Link to="">CONTACT US</Link>
+        <ActiveLink to="/contact">CONTACT US</ActiveLink>
       </li>
       <li>
-        <Link to="">DASHBOARD</Link>
+        <ActiveLink to="/dashboard">DASHBOARD</ActiveLink>
       </li>
       <li>
-        <Link to="">OUR MENU</Link>
+        <ActiveLink to="/menu">OUR MENU</ActiveLink>
       </li>
       <li>
-        <Link to="">OUR SHOP</Link>
+        <ActiveLink to="/shop">OUR SHOP</ActiveLink>
       </li>
       <li>
         <Link to="">
