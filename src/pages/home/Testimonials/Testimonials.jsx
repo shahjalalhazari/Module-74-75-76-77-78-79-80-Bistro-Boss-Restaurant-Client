@@ -19,7 +19,6 @@ const Testimonials = () => {
       .then((data) => setReviews(data));
   }, []);
 
-  console.log(reviews);
   return (
     <section className="my-container pb-10 md:pb-16">
       <SectionTitle

@@ -5,7 +5,7 @@ const PageCover = ({ image, heading, subHeading }) => {
     <Parallax
       blur={{ min: -80, max: 80 }}
       bgImage={image}
-      bgImageAlt="the dog"
+      bgImageAlt="Our Menu"
       strength={-200}
     >
       <section className="page-cover-container">

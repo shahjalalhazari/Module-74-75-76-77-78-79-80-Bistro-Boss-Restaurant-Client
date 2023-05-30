@@ -1,18 +1,15 @@
+import useMenu from "../../../hooks/useMenu";
 import HorizontalCard from "../../../components/HorizontalCard/HorizontalCard";
-import SectionTitle from "./../../../components/SectionTitle/SectionTitle";
-import useMenu from "./../../../hooks/useMenu";
-import PrimaryBtn from './../../../components/PrimaryBtn/PrimaryBtn';
+import PrimaryBtn from "../../../components/PrimaryBtn/PrimaryBtn";
 
-const OfferItems = () => {
+const DessertsItems = () => {
   const [menu] = useMenu();
-  const offerItems = menu.filter((item) => item.category === "offered");
+  const dessertItems = menu.filter((item) => item.category === "dessert");
   return (
     <section className="my-container">
-      <SectionTitle heading={"TODAY'S OFFER"} subHeading={"Don't miss"} />
-
       {/* Display Items */}
       <div className="two-cols">
-        {offerItems.map((item) => (
+        {dessertItems.map((item) => (
           <HorizontalCard key={item._id} item={item} />
         ))}
       </div>
@@ -25,4 +22,4 @@ const OfferItems = () => {
   );
 };
 
-export default OfferItems;
+export default DessertsItems;

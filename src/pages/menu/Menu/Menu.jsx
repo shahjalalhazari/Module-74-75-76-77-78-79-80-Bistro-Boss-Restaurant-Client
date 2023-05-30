@@ -2,6 +2,9 @@ import PageCover from "../../shared/PageCover/PageCover";
 import coverImg from "../../../assets/menu/banner3.jpg";
 import { Helmet } from "react-helmet-async";
 import OfferItems from "../OfferItems/OfferItems";
+import DessertsItems from "../DessertsItems/DessertsItems";
+import CategoryCover from "../../shared/CategoryCover/CategoryCover";
+import dessertImg from "../../../assets/menu/dessert-bg.jpeg";
 
 const Menu = () => {
   return (
@@ -11,7 +14,7 @@ const Menu = () => {
         <title>Our Menu | Bistro Boss Restaurant </title>
       </Helmet>
 
-{/* Page Cover */}
+      {/* Page Cover */}
       <PageCover
         image={coverImg}
         heading="OUR MENU"
@@ -19,7 +22,16 @@ const Menu = () => {
       />
 
       {/* Today's Offer Section */}
-      <OfferItems/>
+      <OfferItems />
+
+      {/* Dessert Items Cover Photo */}
+      <CategoryCover
+        image={dessertImg}
+        heading="Desserts"
+        subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      />
+      {/* Desserts Items List */}
+      <DessertsItems />
     </>
   );
 };

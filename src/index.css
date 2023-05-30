@@ -48,7 +48,11 @@
 }
 
 .page-cover-container {
-    @apply hero px-8 md:px-[300px] pt-[136px] md:pt-48 pb-8 md:pb-24;
+    @apply hero px-8 md:px-[300px] pt-[130px] md:pt-48 pb-8 md:pb-24;
+}
+
+.category-cover-container {
+    @apply hero px-8 md:px-[300px] py-10 md:py-24;
 }
 
 .three-cols {
@@ -86,4 +90,13 @@
 
 .cover-sub-heading {
     @apply text-white uppercase inter mt-2;
+}
+
+/* Category Cover Style */
+.category-cover-heading {
+    @apply text-5xl md:text-5xl uppercase cinzel text-white;
+}
+
+.category-cover-sub-heading {
+    @apply text-white inter mt-2;
 }
