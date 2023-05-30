@@ -1,6 +1,6 @@
-import useMenu from "../../../../hooks/useMenu";
-import HorizontalCard from "../../../../components/HorizontalCard/HorizontalCard";
-import PrimaryBtn from "../../../../components/PrimaryBtn/PrimaryBtn";
+import useMenu from "../../../hooks/useMenu";
+import HorizontalCard from "../../../components/HorizontalCard/HorizontalCard";
+import PrimaryBtn from "../../../components/PrimaryBtn/PrimaryBtn";
 
 const SoupItems = () => {
   const [menu] = useMenu();

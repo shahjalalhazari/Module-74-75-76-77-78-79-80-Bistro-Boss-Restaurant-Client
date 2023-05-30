@@ -10,14 +10,14 @@ import PizzaItems from "../PizzaItems/PizzaItems";
 import saladsImg from "../../../assets/menu/salad-bg.jpg"
 import SaladItems from "../SaladItems/SaladItems";
 import soupImg from "../../../assets/menu/soup-bg.jpg"
-import SoupItems from "./SoupItems/SoupItems";
+import SoupItems from "../SoupItems/SoupItems";
 
 const Menu = () => {
   return (
     <>
       {/* React Helmet for dynamic page title */}
       <Helmet>
-        <title>Our Menu | Bistro Boss Restaurant </title>
+        <title>Menu | Bistro Boss Restaurant </title>
       </Helmet>
 
       {/* Page Cover */}
@@ -54,29 +54,27 @@ const Menu = () => {
       {/* Pizza items list */}
       <PizzaItems />
 
-
       {/* -------------------------------- */}
 
-      {/* Pizza Items Cover Photo */}
+      {/* Salad Items Cover Photo */}
       <CategoryCover
         image={saladsImg}
         heading="Salads"
         subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
       />
-      {/* Pizza items list */}
+      {/* Salad items list */}
       <SaladItems />
-      
 
       {/* -------------------------------- */}
 
-      {/* Pizza Items Cover Photo */}
+      {/* Soup Items Cover Photo */}
       <CategoryCover
         image={soupImg}
         heading="Soups"
         subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
       />
-      {/* Pizza items list */}
-      <SoupItems/>
+      {/* Soup items list */}
+      <SoupItems />
     </>
   );
 };

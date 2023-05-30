@@ -85,7 +85,7 @@
 
 /* Page Cover Style */
 .cover-heading {
-    @apply text-5xl md:text-[88px] uppercase cinzel text-white;
+    @apply text-5xl font-bold md:text-[88px] uppercase cinzel text-white;
 }
 
 .cover-sub-heading {
