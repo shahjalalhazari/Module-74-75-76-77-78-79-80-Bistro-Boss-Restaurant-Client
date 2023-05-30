@@ -7,7 +7,6 @@ const CategoryCover = ({ image, heading, subHeading }) => {
       bgImage={image}
       bgImageAlt="Category"
       strength={-200}
-      className="mt-12 md:mt-0"
     >
       <section className="category-cover-container">
         <div className="hero-overlay bg-opacity-60 bg-black"></div>

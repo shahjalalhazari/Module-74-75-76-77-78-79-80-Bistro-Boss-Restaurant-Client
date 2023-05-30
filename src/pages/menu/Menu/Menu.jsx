@@ -5,6 +5,8 @@ import OfferItems from "../OfferItems/OfferItems";
 import DessertsItems from "../DessertsItems/DessertsItems";
 import CategoryCover from "../../shared/CategoryCover/CategoryCover";
 import dessertImg from "../../../assets/menu/dessert-bg.jpeg";
+import pizzaImg from "../../../assets/menu/pizza-bg.jpg";
+import PizzaItems from "../PizzaItems/PizzaItems";
 
 const Menu = () => {
   return (
@@ -21,8 +23,12 @@ const Menu = () => {
         subHeading="would you like to try a dish?"
       />
 
+      {/* ----------------------------- */}
+
       {/* Today's Offer Section */}
       <OfferItems />
+
+      {/* ----------------------------- */}
 
       {/* Dessert Items Cover Photo */}
       <CategoryCover
@@ -32,6 +38,17 @@ const Menu = () => {
       />
       {/* Desserts Items List */}
       <DessertsItems />
+
+      {/* -------------------------------- */}
+
+      {/* Pizza Items Cover Photo */}
+      <CategoryCover
+        image={pizzaImg}
+        heading="Pizza"
+        subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      />
+      {/* Pizza items list */}
+      <PizzaItems />
     </>
   );
 };
