@@ -1,5 +1,5 @@
-const PrimaryBtn = () => {
-    return <button className="primary-btn">View Full Menu</button>;
+const PrimaryBtn = ({text}) => {
+    return <button className="primary-btn">{text}</button>;
 };
 
 export default PrimaryBtn;

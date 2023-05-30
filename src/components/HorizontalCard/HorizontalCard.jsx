@@ -1,5 +1,5 @@
-const HorizontalCard = ({ menuItem }) => {
-  const { name, price, image, recipe } = menuItem;
+const HorizontalCard = ({ item }) => {
+  const { name, price, image, recipe } = item;
   return (
     <div className="flex">
       <figure>
