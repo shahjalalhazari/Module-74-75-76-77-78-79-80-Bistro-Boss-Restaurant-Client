@@ -9,6 +9,8 @@ import pizzaImg from "../../../assets/menu/pizza-bg.jpg";
 import PizzaItems from "../PizzaItems/PizzaItems";
 import saladsImg from "../../../assets/menu/salad-bg.jpg"
 import SaladItems from "../SaladItems/SaladItems";
+import soupImg from "../../../assets/menu/soup-bg.jpg"
+import SoupItems from "./SoupItems/SoupItems";
 
 const Menu = () => {
   return (
@@ -62,7 +64,19 @@ const Menu = () => {
         subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
       />
       {/* Pizza items list */}
-      <SaladItems/>
+      <SaladItems />
+      
+
+      {/* -------------------------------- */}
+
+      {/* Pizza Items Cover Photo */}
+      <CategoryCover
+        image={soupImg}
+        heading="Soups"
+        subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      />
+      {/* Pizza items list */}
+      <SoupItems/>
     </>
   );
 };
