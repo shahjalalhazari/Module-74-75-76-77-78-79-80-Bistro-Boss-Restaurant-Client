@@ -20,7 +20,7 @@ const RecommendedItems = () => {
 
       <div className="three-cols">
         {recommendedItems.slice(0, 3).map((item) => (
-          <ItemCard key={item._id} data={item} />
+          <ItemCard key={item._id} item={item} />
         ))}
       </div>
     </section>
