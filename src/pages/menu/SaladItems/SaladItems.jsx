@@ -17,7 +17,7 @@ const SaladItems = () => {
 
         {/* Button */}
         <div className="text-center my-12">
-          <PrimaryBtn text="ORDER YOUR FAVORITE FOOD" />
+          <PrimaryBtn text="ORDER YOUR FAVORITE FOOD" link="/shop" />
         </div>
       </section>
     );

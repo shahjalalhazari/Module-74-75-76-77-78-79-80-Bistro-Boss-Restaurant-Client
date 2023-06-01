@@ -18,9 +18,7 @@ const OfferItems = () => {
       </div>
 
       {/* Button */}
-      <div className="text-center my-12">
-        <PrimaryBtn text="ORDER YOUR FAVORITE FOOD" />
-      </div>
+      <PrimaryBtn text="ORDER YOUR FAVORITE FOOD" link="/shop" />
     </section>
   );
 };

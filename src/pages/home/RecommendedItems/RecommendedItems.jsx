@@ -1,15 +1,10 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import ItemCard from "../../../components/ItemCard/ItemCard";
+import useMenu from "./../../../hooks/useMenu";
 
 const RecommendedItems = () => {
-  const [recommendedItems, setRecommendedItems] = useState([]);
+  const [menu] = useMenu();
 
-  useEffect(() => {
-    fetch("/menu.json")
-      .then((res) => res.json())
-      .then((data) => setRecommendedItems(data));
-  }, []);
   return (
     <section className="my-container">
       <SectionTitle
@@ -19,7 +14,7 @@ const RecommendedItems = () => {
       />
 
       <div className="three-cols">
-        {recommendedItems.slice(0, 3).map((item) => (
+        {menu.slice(0, 3).map((item) => (
           <ItemCard key={item._id} item={item} />
         ))}
       </div>

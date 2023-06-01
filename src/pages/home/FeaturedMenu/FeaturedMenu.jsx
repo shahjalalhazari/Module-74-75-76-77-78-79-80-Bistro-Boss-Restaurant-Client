@@ -2,7 +2,6 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import PrimaryBtn from "../../../components/PrimaryBtn/PrimaryBtn";
 import HorizontalCard from "../../../components/HorizontalCard/HorizontalCard";
 import useMenu from "./../../../hooks/useMenu";
-import { Link } from "react-router-dom";
 
 const FeaturedMenu = () => {
   const [menu] = useMenu();
@@ -20,11 +19,7 @@ const FeaturedMenu = () => {
         ))}
       </div>
       {/* Button */}
-      <div   className="text-center mt-12">
-        <Link to="/menu">
-          <PrimaryBtn text="View Full  Menu" />
-        </Link>
-      </div>
+      <PrimaryBtn text="View Full  Menu" link="/menu" />
     </section>
   );
 };

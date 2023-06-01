@@ -15,9 +15,7 @@ const DessertsItems = () => {
       </div>
 
       {/* Button */}
-      <div className="text-center my-12">
-        <PrimaryBtn text="ORDER YOUR FAVORITE FOOD" />
-      </div>
+      <PrimaryBtn link="/shop" text="ORDER YOUR FAVORITE FOOD" />
     </section>
   );
 };
