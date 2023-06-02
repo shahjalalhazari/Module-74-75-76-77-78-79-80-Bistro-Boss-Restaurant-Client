@@ -1,18 +1,28 @@
+import { Helmet } from "react-helmet-async";
+
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import PageCover from "../../shared/PageCover/PageCover";
 import coverImg from "../../../assets/menu/banner3.jpg";
-import { Helmet } from "react-helmet-async";
-import OfferItems from "../OfferItems/OfferItems";
-import DessertsItems from "../DessertsItems/DessertsItems";
-import CategoryCover from "../../shared/CategoryCover/CategoryCover";
+import useMenu from "../../../hooks/useMenu";
+
 import dessertImg from "../../../assets/menu/dessert-bg.jpeg";
 import pizzaImg from "../../../assets/menu/pizza-bg.jpg";
-import PizzaItems from "../PizzaItems/PizzaItems";
-import saladsImg from "../../../assets/menu/salad-bg.jpg"
-import SaladItems from "../SaladItems/SaladItems";
-import soupImg from "../../../assets/menu/soup-bg.jpg"
-import SoupItems from "../SoupItems/SoupItems";
+import saladsImg from "../../../assets/menu/salad-bg.jpg";
+import soupImg from "../../../assets/menu/soup-bg.jpg";
+
+import MenuCategory from "../MenuCategory/MenuCategory";
+
 
 const Menu = () => {
+  const [menu] = useMenu();
+  const offerItems = menu.filter((item) => item.category === "offered");
+  const dessertItems = menu.filter((item) => item.category === "dessert");
+  const pizzaItems = menu.filter((item) => item.category === "pizza");
+  const saladItems = menu.filter((item) => item.category === "salad");
+  const soupItems = menu.filter((item) => item.category === "soup");
+  const drinkItems = menu.filter((item) => item.category === "drinks");
+
+
   return (
     <>
       {/* React Helmet for dynamic page title */}
@@ -27,54 +37,44 @@ const Menu = () => {
         subHeading="would you like to try a dish?"
       />
 
-      {/* ----------------------------- */}
+      {/* ------------OFFER ITEMS----------------- */}
 
       {/* Today's Offer Section */}
-      <OfferItems />
+      <div className="my-container">
+        <SectionTitle heading={"TODAY'S OFFER"} subHeading={"Don't miss"} />
+      </div>
+      <MenuCategory items={offerItems} />
 
-      {/* ----------------------------- */}
-
-      {/* Dessert Items Cover Photo */}
-      <CategoryCover
-        image={dessertImg}
-        heading="Desserts"
-        subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      {/* ------------DESSERT ITEMS----------------- */}
+      <MenuCategory
+        items={dessertItems}
+        heading="desserts"
+        coverImage={dessertImg}
       />
-      {/* Desserts Items List */}
-      <DessertsItems />
 
-      {/* -------------------------------- */}
+      {/* --------------PIZZA ITEMS------------------ */}
+      <MenuCategory items={pizzaItems} heading="pizza" coverImage={pizzaImg} />
 
-      {/* Pizza Items Cover Photo */}
-      <CategoryCover
-        image={pizzaImg}
-        heading="Pizza"
-        subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      {/* ------------SALADS ITEMS-------------------- */}
+      <MenuCategory
+        items={saladItems}
+        heading="salads"
+        coverImage={saladsImg}
       />
-      {/* Pizza items list */}
-      <PizzaItems />
 
-      {/* -------------------------------- */}
-
-      {/* Salad Items Cover Photo */}
-      <CategoryCover
-        image={saladsImg}
-        heading="Salads"
-        subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      {/* ---------------SOUPS ITEMS----------------- */}
+      <MenuCategory
+        items={soupItems}
+        heading="soups"
+        coverImage={soupImg}
       />
-      {/* Salad items list */}
-      <SaladItems />
 
-      {/* -------------------------------- */}
-
-      {/* Soup Items Cover Photo */}
-      <CategoryCover
-        image={soupImg}
-        heading="Soups"
-        subHeading="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      {/* ---------------DRINKS ITEMS----------------- */}
+      <MenuCategory
+        items={drinkItems}
+        heading="drinks"
+        coverImage={dessertImg}
       />
-      {/* Soup items list */}
-      <SoupItems />
     </>
   );
 };

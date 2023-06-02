@@ -5,7 +5,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import PageCover from "./../../shared/PageCover/PageCover";
 import coverImg from "../../../assets/shop/banner2.jpg";
 import useMenu from "../../../hooks/useMenu";
-import ItemCard from "./../../../components/ItemCard/ItemCard";
+import ShopTab from "../ShopTab/ShopTab";
 
 const Shop = () => {
   const [menu] = useMenu();
@@ -13,7 +13,7 @@ const Shop = () => {
   const pizzaItems = menu.filter((item) => item.category === "pizza");
   const soupItems = menu.filter((item) => item.category === "soup");
   const dessertItems = menu.filter((item) => item.category === "dessert");
-  const drinktItems = menu.filter((item) => item.category === "drinks");
+  const drinkItems = menu.filter((item) => item.category === "drinks");
   return (
     <>
       {/* React Helmet for dynamic page title */}
@@ -39,40 +39,24 @@ const Shop = () => {
           </TabList>
 
           <TabPanel>
-            {/* Display Items */}
-            <div className="three-cols">
-              {saladItems.map((item) => (
-                <ItemCard key={item._id} item={item} />
-              ))}
-            </div>
+            {/* Salad Items */}
+            <ShopTab items={saladItems} />
           </TabPanel>
           <TabPanel>
-            <div className="three-cols">
-              {pizzaItems.map((item) => (
-                <ItemCard key={item._id} item={item} />
-              ))}
-            </div>
+            {/* Pizza Items */}
+            <ShopTab items={pizzaItems} />
           </TabPanel>
           <TabPanel>
-            <div className="three-cols">
-              {soupItems.map((item) => (
-                <ItemCard key={item._id} item={item} />
-              ))}
-            </div>
+            {/* Soup Items */}
+            <ShopTab items={soupItems} />
           </TabPanel>
           <TabPanel>
-            <div className="three-cols">
-              {dessertItems.map((item) => (
-                <ItemCard key={item._id} item={item} />
-              ))}
-            </div>
+            {/* Dessert Items */}
+            <ShopTab items={dessertItems} />
           </TabPanel>
           <TabPanel>
-            <div className="three-cols">
-              {drinktItems.map((item) => (
-                <ItemCard key={item._id} item={item} />
-              ))}
-            </div>
+            {/* Drink Items */}
+            <ShopTab items={drinkItems} />
           </TabPanel>
         </Tabs>
 

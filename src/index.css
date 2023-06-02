@@ -56,11 +56,11 @@
 }
 
 .three-cols {
-    @apply grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 md:mb-20;
+    @apply grid md:grid-cols-3 gap-6 mb-10 md:mb-20;
 }
 
 .two-cols {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+    @apply grid md:grid-cols-2 gap-6;
 }
 
 
