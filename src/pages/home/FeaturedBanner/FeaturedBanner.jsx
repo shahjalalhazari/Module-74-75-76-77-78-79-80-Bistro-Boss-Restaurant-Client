@@ -1,4 +1,5 @@
-import featuredImg from "../../../assets/home/featured.jpg"
+import { Link } from "react-router-dom";
+import featuredImg from "../../../assets/home/featured.jpg";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const FeaturedBanner = () => {
@@ -31,7 +32,9 @@ const FeaturedBanner = () => {
                   quasi. Eaque repellat recusandae ad laudantium tempore
                   consequatur consequuntur omnis ullam maxime tenetur.
                 </p>
-                <button className="white-btn">Get Started</button>
+                <Link to="/menu">
+                  <button className="white-btn">Get Started</button>
+                </Link>
               </div>
             </div>
           </div>

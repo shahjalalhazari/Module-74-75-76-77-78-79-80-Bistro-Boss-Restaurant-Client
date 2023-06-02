@@ -15,9 +15,7 @@ const Shop = () => {
   const categories = ["salads", "pizza", "soups", "desserts", "drinks"];
   const { category } = useParams();
   const initialIndex = categories.indexOf(category);
-  console.log(initialIndex);
   const [tabIndex, setTabIndex] = useState(initialIndex);
-  console.log(tabIndex);
 
   const [menu] = useMenu();
   const saladItems = menu.filter((item) => item.category === "salad");
@@ -29,7 +27,7 @@ const Shop = () => {
     <>
       {/* React Helmet for dynamic page title */}
       <Helmet>
-        <title>Shop | Bistro Boss Restaurant </title>
+        <title>{`${category} - Shop | Bistro Boss Restaurant`} </title>
       </Helmet>
 
       {/* Page Cover */}
