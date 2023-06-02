@@ -1,13 +1,24 @@
 import { Helmet } from "react-helmet-async";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+// import "react-tabs/style/react-tabs.css";
+
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 import PageCover from "./../../shared/PageCover/PageCover";
 import coverImg from "../../../assets/shop/banner2.jpg";
 import useMenu from "../../../hooks/useMenu";
 import ShopTab from "../ShopTab/ShopTab";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 const Shop = () => {
+  const categories = ["salads", "pizza", "soups", "desserts", "drinks"];
+  const { category } = useParams();
+  const initialIndex = categories.indexOf(category);
+  console.log(initialIndex);
+  const [tabIndex, setTabIndex] = useState(initialIndex);
+  console.log(tabIndex);
+
   const [menu] = useMenu();
   const saladItems = menu.filter((item) => item.category === "salad");
   const pizzaItems = menu.filter((item) => item.category === "pizza");
@@ -29,13 +40,14 @@ const Shop = () => {
       />
 
       <div className="my-container">
-        <Tabs>
+        <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList className="flex gap-10 justify-center text-xl font-bold uppercase mb-10">
-            <Tab className={"cursor-pointer"}>Salads</Tab>
-            <Tab className={"cursor-pointer"}>Pizza</Tab>
-            <Tab className={"cursor-pointer"}>Soups</Tab>
-            <Tab className={"cursor-pointer"}>Desserts</Tab>
-            <Tab className={"cursor-pointer"}>Drinks</Tab>
+            {/* <TabList> */}
+            {categories.map((category) => (
+              <Tab key={category} className={"cursor-pointer"}>
+                {category}
+              </Tab>
+            ))}
           </TabList>
 
           <TabPanel>

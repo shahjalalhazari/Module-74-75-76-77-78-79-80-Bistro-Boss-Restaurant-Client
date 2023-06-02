@@ -38,8 +38,6 @@ const Menu = () => {
       />
 
       {/* ------------OFFER ITEMS----------------- */}
-
-      {/* Today's Offer Section */}
       <div className="my-container">
         <SectionTitle heading={"TODAY'S OFFER"} subHeading={"Don't miss"} />
       </div>
@@ -63,11 +61,7 @@ const Menu = () => {
       />
 
       {/* ---------------SOUPS ITEMS----------------- */}
-      <MenuCategory
-        items={soupItems}
-        heading="soups"
-        coverImage={soupImg}
-      />
+      <MenuCategory items={soupItems} heading="soups" coverImage={soupImg} />
 
       {/* ---------------DRINKS ITEMS----------------- */}
       <MenuCategory

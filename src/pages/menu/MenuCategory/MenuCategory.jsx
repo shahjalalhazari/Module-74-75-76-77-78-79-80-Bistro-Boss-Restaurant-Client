@@ -15,7 +15,14 @@ const MenuCategory = ({ items, heading, coverImage }) => {
         </div>
 
         {/* Button */}
-        <PrimaryBtn text="ORDER YOUR FAVORITE FOOD" link="/shop" />
+        {heading ? (
+          <PrimaryBtn
+            text="ORDER YOUR FAVORITE FOOD"
+            link={`/shop/${heading}`}
+          />
+        ) : (
+          <PrimaryBtn text="ORDER YOUR FAVORITE FOOD" link={`/shop/salads`} />
+        )}
       </section>
     </>
   );
