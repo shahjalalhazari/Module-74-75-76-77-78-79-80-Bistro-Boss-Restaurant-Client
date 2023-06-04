@@ -27,7 +27,7 @@ const Shop = () => {
     <>
       {/* React Helmet for dynamic page title */}
       <Helmet>
-        <title>{`${category} - Shop | Bistro Boss Restaurant`} </title>
+        <title>{`${category.toUpperCase()} - Shop | Bistro Boss Restaurant`} </title>
       </Helmet>
 
       {/* Page Cover */}

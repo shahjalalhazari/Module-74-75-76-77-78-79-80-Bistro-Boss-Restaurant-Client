@@ -3,23 +3,25 @@ import cart from "../../../assets/cart.png";
 import textLogo from "../../../assets/text-logo.png";
 import ActiveLink from "../../../components/ActiveLink/ActiveLink";
 
+import profileImg from "../../../assets/others/profile.png";
+
 const Navbar = () => {
   const navListItems = (
-    <div className="font-medium md:flex">
+    <div className="font-medium md:flex uppercase">
       <li>
-        <ActiveLink to="/">HOME</ActiveLink>
+        <ActiveLink to="/">Home</ActiveLink>
       </li>
       <li>
-        <ActiveLink to="/contact">CONTACT US</ActiveLink>
+        <ActiveLink to="/contact">Contact Us</ActiveLink>
       </li>
       <li>
-        <ActiveLink to="/dashboard">DASHBOARD</ActiveLink>
+        <ActiveLink to="/dashboard">Dashboard</ActiveLink>
       </li>
       <li>
-        <ActiveLink to="/menu">OUR MENU</ActiveLink>
+        <ActiveLink to="/menu">Our Menu</ActiveLink>
       </li>
       <li>
-        <ActiveLink to="/shop/salads">OUR SHOP</ActiveLink>
+        <ActiveLink to="/shop/salads">Our Shop</ActiveLink>
       </li>
       <li>
         <Link to="">
@@ -27,18 +29,36 @@ const Navbar = () => {
         </Link>
       </li>
       <div className="flex items-center">
-        <li>
-          <Link to="">SIGN OUT</Link>
-        </li>
-        <li>
-          <Link to="">
-            <img
-              src="https://img.freepik.com/free-icon/user_318-824560.jpg?w=360"
-              alt=""
-              className="w-9 h-9 rounded-full"
-            />
-          </Link>
-        </li>
+        <div className="dropdown md:dropdown-end text-navy-blue">
+          <label tabIndex={5} className="btn btn-ghost btn-circle avatar">
+            <div className="w-9 h-9 rounded-full">
+              <img
+                src={profileImg}
+                alt=""
+                className=""
+              />
+            </div>
+          </label>
+          <ul
+            tabIndex={5}
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <Link to="" className="justify-between">
+                Profile
+              </Link>
+            </li>
+            <li>
+              <ActiveLink to="">Register</ActiveLink>
+            </li>
+            <li>
+              <ActiveLink to="/login">Login</ActiveLink>
+            </li>
+            <li>
+              <ActiveLink to="">Sign Out</ActiveLink>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
