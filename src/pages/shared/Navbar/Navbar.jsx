@@ -49,7 +49,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <ActiveLink to="">Register</ActiveLink>
+              <ActiveLink to="/register">Register</ActiveLink>
             </li>
             <li>
               <ActiveLink to="/login">Login</ActiveLink>

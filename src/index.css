@@ -94,7 +94,7 @@
 
 /* Category Cover Style */
 .category-cover-heading {
-    @apply text-5xl md:text-5xl uppercase cinzel text-white;
+    @apply text-5xl uppercase cinzel text-white;
 }
 
 .category-cover-sub-heading {
@@ -107,7 +107,7 @@
 
 
 /* Login & Sing Up Style */
-.login-card-content {
+.card-container {
     @apply hero-content grid md:grid-cols-2 p-5 md:p-0;
 }
 
@@ -116,7 +116,7 @@
 }
 
 .login-form {
-    @apply md:py-12 md:mr-28;
+    @apply md:py-12;
 }
 
 .login-card-heading {
@@ -149,7 +149,7 @@
 }
 
 .social-media-icons {
-    @apply flex gap-x-8 md:gap-x-14 justify-center mt-4 text-2xl;
+    @apply flex gap-x-8 md:gap-x-14 justify-center mt-8 text-2xl;
 }
 
 .social-media {

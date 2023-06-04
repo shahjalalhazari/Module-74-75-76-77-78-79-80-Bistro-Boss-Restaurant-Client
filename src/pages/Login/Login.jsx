@@ -1,9 +1,7 @@
 import { Helmet } from "react-helmet-async";
-import loginImg from "../../../assets/others/authentication2.png";
-import bgImg from "../../../assets/others/authentication.png";
+import loginImg from "../../assets/others/authentication2.png";
+import bgImg from "../../assets/others/authentication.png";
 import { Link } from "react-router-dom";
-
-import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 
 // React captcha
 import {
@@ -12,11 +10,11 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 import { useEffect, useRef, useState } from "react";
-
+import SMAuthentication from "../shared/SMAuthentication/SMAuthentication";
 
 const Login = () => {
   const captchaRef = useRef(null);
-  const [allowLogin, setAllowLogin] = useState(true)
+  const [allowLogin, setAllowLogin] = useState(true);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -29,7 +27,7 @@ const Login = () => {
 
   useEffect(() => {
     loadCaptchaEnginge(6);
-  }, [])
+  }, []);
 
   const handleValidateCaptcha = () => {
     const user_captcha_value = captchaRef.current.value;
@@ -38,7 +36,7 @@ const Login = () => {
     } else {
       setAllowLogin(true);
     }
-  }
+  };
   return (
     <div>
       <Helmet>
@@ -57,11 +55,11 @@ const Login = () => {
             backgroundImage: `url("${bgImg}")`,
           }}
         >
-          <div className="login-card-content">
+          <div className="card-container">
             <div className="login-img">
               <img src={loginImg} alt="" className="w-full md:-mt-20" />
             </div>
-            <div className="login-form">
+            <div className="login-form  md:mr-28">
               <h2 className="login-card-heading">Login</h2>
               {/* Login Form */}
               <form onSubmit={handleLogin}>
@@ -121,23 +119,12 @@ const Login = () => {
                 {/* Redirect link to sign up page */}
                 <p className="redirect-text">
                   New here?{" "}
-                  <Link to="" className="font-medium hover:underline">
+                  <Link to="/register" className="font-medium hover:underline">
                     Create a New Account
                   </Link>
                 </p>
                 {/* Social Media SignIn */}
-                <p className="divider-text">Or sign in with</p>
-                <div className="social-media-icons">
-                  <button className="social-media">
-                    <FaFacebookF />
-                  </button>
-                  <button className="social-media">
-                    <FaGoogle />
-                  </button>
-                  <button className="social-media">
-                    <FaGithub />
-                  </button>
-                </div>
+                <SMAuthentication/>
               </div>
             </div>
           </div>
