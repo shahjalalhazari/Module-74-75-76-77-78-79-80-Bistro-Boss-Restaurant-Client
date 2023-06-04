@@ -104,3 +104,54 @@
 .react-tabs__tab--selected {
     @apply text-yellow border-b-4 pb-1
 }
+
+
+/* Login & Sing Up Style */
+.login-card-content {
+    @apply hero-content grid md:grid-cols-2 p-5 md:p-0;
+}
+
+.login-img {
+    @apply flex items-center mx-auto md:my-20;
+}
+
+.login-form {
+    @apply md:py-12 md:mr-28;
+}
+
+.login-card-heading {
+    @apply text-center text-black text-4xl font-bold mb-5;
+}
+
+.label-text {
+    @apply text-black2 font-semibold mb-4 text-xl;
+}
+
+.input-field {
+    @apply py-5 pl-5 bg-white border-[1px] border-[#d0d0d0] rounded-lg;
+}
+
+.captcha-field {
+    @apply py-4 pl-4 bg-white border-[1px] border-[#d0d0d0] rounded-lg;
+}
+
+.submit-btn {
+    @apply btn btn-block mt-6 border-0 text-xl font-bold h-16;
+    background: rgba(209, 160, 84, 0.7);
+}
+
+.redirect-text {
+    @apply text-[#D1A054] text-xl tracking-tighter;
+}
+
+.divider-text {
+    @apply text-black2 text-xl tracking-tighter font-medium mt-6;
+}
+
+.social-media-icons {
+    @apply flex gap-x-8 md:gap-x-14 justify-center mt-4 text-2xl;
+}
+
+.social-media {
+    @apply border-2 rounded-full p-4 hover:text-[#D1A054];
+}

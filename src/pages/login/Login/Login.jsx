@@ -5,7 +5,40 @@ import { Link } from "react-router-dom";
 
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 
+// React captcha
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  validateCaptcha,
+} from "react-simple-captcha";
+import { useEffect, useRef, useState } from "react";
+
+
 const Login = () => {
+  const captchaRef = useRef(null);
+  const [allowLogin, setAllowLogin] = useState(true)
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const loginData = { email, password };
+    console.log(loginData);
+  };
+
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  }, [])
+
+  const handleValidateCaptcha = () => {
+    const user_captcha_value = captchaRef.current.value;
+    if (validateCaptcha(user_captcha_value) == true) {
+      setAllowLogin(false);
+    } else {
+      setAllowLogin(true);
+    }
+  }
   return (
     <div>
       <Helmet>
@@ -24,86 +57,84 @@ const Login = () => {
             backgroundImage: `url("${bgImg}")`,
           }}
         >
-          <div className="hero-content grid md:grid-cols-2 p-5 md:p-0">
-            <div className="flex items-center mx-auto md:my-20">
-              <img src={loginImg} alt="" className="w-full md:-mt-20"/>
+          <div className="login-card-content">
+            <div className="login-img">
+              <img src={loginImg} alt="" className="w-full md:-mt-20" />
             </div>
-            <div className="md:py-12 md:mr-28">
-              <h2 className="text-center text-black text-4xl font-bold mb-5">
-                Login
-              </h2>
-              <form className="">
+            <div className="login-form">
+              <h2 className="login-card-heading">Login</h2>
+              {/* Login Form */}
+              <form onSubmit={handleLogin}>
                 {/* Email FIeld */}
                 <div className="form-control">
-                  <label
-                    htmlFor="email"
-                    className="text-black2 font-semibold mb-4 text-xl"
-                  >
+                  <label htmlFor="email" className="label-text">
                     Email
                   </label>
                   <input
-                    type="email "
+                    type="email"
+                    name="email"
                     placeholder="Type here"
-                    className="py-5 pl-5 bg-white border-[1px] border-[#d0d0d0] rounded-lg"
+                    className="input-field"
+                    // required
                   />
                 </div>
                 {/* Password Field */}
                 <div className="form-control mt-6">
-                  <label
-                    htmlFor="password"
-                    className="text-black2 font-semibold mb-4 text-xl"
-                  >
+                  <label htmlFor="password" className="label-text">
                     Password
                   </label>
                   <input
-                    type="password "
+                    type="password"
+                    name="password"
                     placeholder="Enter Your Password"
-                    className="py-5 pl-5 bg-white border-[1px] border-[#d0d0d0] rounded-lg"
+                    className="input-field"
+                    // required
                   />
                 </div>
                 {/* Captcha Field */}
                 <div className="form-control mt-9">
-                  <input
-                    type="password "
-                    placeholder="Type here"
-                    className="py-5 pl-5 bg-white border-[1px] border-[#d0d0d0] rounded-lg"
-                    readOnly
-                    disabled
-                  />
-                  <p className="text-[#5D5FEF] font-semibold mb-4 mt-1 text-lg">
-                    Reload Captcha
-                  </p>
+                  <LoadCanvasTemplate />
                   <input
                     type="text"
-                    placeholder="Type here"
-                    className="py-5 pl-5 bg-white border-[1px] border-[#d0d0d0] rounded-lg"
+                    name="captcha"
+                    placeholder="Type captcha text here"
+                    className="input-field mt-3"
+                    ref={captchaRef}
                   />
+                  <button
+                    onClick={handleValidateCaptcha}
+                    className="btn btn-xs mt-2"
+                  >
+                    Verify Captcha
+                  </button>
                 </div>
+                {/* Submit Button */}
                 <input
+                  disabled={allowLogin}
                   type="submit"
                   value="Sign In"
-                  className="btn btn-block mt-6 border-0 text-xl font-bold h-16"
-                  style={{ background: "rgba(209, 160, 84, 0.7)" }}
+                  className="submit-btn"
                 />
               </form>
+              {/* Bottom Content */}
               <div className="text-center mt-8">
-                <p className="text-[#D1A054] text-xl tracking-tighter">
+                {/* Redirect link to sign up page */}
+                <p className="redirect-text">
                   New here?{" "}
                   <Link to="" className="font-medium hover:underline">
                     Create a New Account
                   </Link>
                 </p>
-                <p className="text-black2 text-xl tracking-tighter font-medium mt-6">
-                  Or sign in with
-                </p>
-                <div className="flex gap-x-8 md:gap-x-14 justify-center mt-4 text-2xl">
-                  <button className="border-2 rounded-full p-4 hover:text-[#D1A054]">
+                {/* Social Media SignIn */}
+                <p className="divider-text">Or sign in with</p>
+                <div className="social-media-icons">
+                  <button className="social-media">
                     <FaFacebookF />
                   </button>
-                  <button className="border-2 rounded-full p-4 hover:text-[#D1A054]">
+                  <button className="social-media">
                     <FaGoogle />
                   </button>
-                  <button className="border-2 rounded-full p-4 hover:text-[#D1A054]">
+                  <button className="social-media">
                     <FaGithub />
                   </button>
                 </div>
