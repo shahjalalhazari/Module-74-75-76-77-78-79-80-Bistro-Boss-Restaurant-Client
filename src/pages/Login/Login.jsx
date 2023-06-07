@@ -119,7 +119,7 @@ const Login = () => {
                 {/* Redirect link to sign up page */}
                 <p className="redirect-text">
                   New here?{" "}
-                  <Link to="/register" className="font-medium hover:underline">
+                  <Link to="/signup" className="font-medium hover:underline">
                     Create a New Account
                   </Link>
                 </p>

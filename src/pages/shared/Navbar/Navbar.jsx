@@ -4,8 +4,18 @@ import textLogo from "../../../assets/text-logo.png";
 import ActiveLink from "../../../components/ActiveLink/ActiveLink";
 
 import profileImg from "../../../assets/others/profile.png";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, LogOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    LogOut()
+      .then(() => {})
+      .then((error) => console.log(error));
+  };
+
   const navListItems = (
     <div className="font-medium md:flex uppercase">
       <li>
@@ -32,31 +42,34 @@ const Navbar = () => {
         <div className="dropdown md:dropdown-end text-navy-blue">
           <label tabIndex={5} className="btn btn-ghost btn-circle avatar">
             <div className="w-9 h-9 rounded-full">
-              <img
-                src={profileImg}
-                alt=""
-                className=""
-              />
+              <img src={profileImg} alt="" className="" />
             </div>
           </label>
           <ul
             tabIndex={5}
             className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <Link to="" className="justify-between">
-                Profile
-              </Link>
-            </li>
-            <li>
-              <ActiveLink to="/register">Register</ActiveLink>
-            </li>
-            <li>
-              <ActiveLink to="/login">Login</ActiveLink>
-            </li>
-            <li>
-              <ActiveLink to="">Sign Out</ActiveLink>
-            </li>
+            {user ? (
+              <>
+                <li>
+                  <Link to="" className="justify-between">
+                    Profile
+                  </Link>
+                </li>
+                <li onClick={handleLogOut}>
+                  <span>Log Out</span>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <ActiveLink to="/signup">Signup</ActiveLink>
+                </li>
+                <li>
+                  <ActiveLink to="/login">Login</ActiveLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
