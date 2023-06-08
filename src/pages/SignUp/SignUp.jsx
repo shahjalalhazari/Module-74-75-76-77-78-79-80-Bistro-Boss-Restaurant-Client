@@ -1,27 +1,39 @@
 import { Helmet } from "react-helmet-async";
 import loginImg from "../../assets/others/authentication2.png";
 import bgImg from "../../assets/others/authentication.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SMAuthentication from "../shared/SMAuthentication/SMAuthentication";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
+      updateUserProfile(data.name, data.photoURL).then(() => {
+        reset();
+        Swal.fire({
+          title: "Success!",
+          text: "Account Created Successfully",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
+        navigate("/");
+      });
     });
   };
   return (
@@ -47,7 +59,7 @@ const SignUp = () => {
               <h2 className="login-card-heading">Sign Up</h2>
               {/* Login Form */}
               <form onSubmit={handleSubmit(onSubmit)}>
-                {/* Name FIeld */}
+                {/* Name Field */}
                 <div className="form-control">
                   <label htmlFor="name" className="label-text">
                     Name
@@ -55,7 +67,7 @@ const SignUp = () => {
                   <input
                     type="text"
                     {...register("name", { required: true })}
-                    placeholder="Type here"
+                    placeholder="Type Your Full Name"
                     className="input-field"
                   />
                   {/* Display Errors */}
@@ -64,15 +76,15 @@ const SignUp = () => {
                   )}
                 </div>
 
-                {/* Email FIeld */}
+                {/* Email Field */}
                 <div className="form-control mt-6">
                   <label htmlFor="email" className="label-text">
-                    Email
+                    E-mail
                   </label>
                   <input
                     type="email"
                     {...register("email", { required: true })}
-                    placeholder="Type here"
+                    placeholder="Enter Your E-mail"
                     className="input-field"
                   />
                   {/* Display Errors */}
@@ -119,9 +131,27 @@ const SignUp = () => {
                     </p>
                   )}
                 </div>
+
+                {/* Photo Url Field */}
+                <div className="form-control mt-6">
+                  <label htmlFor="photoURL" className="label-text">
+                    Photo URL
+                  </label>
+                  <input
+                    type="text"
+                    {...register("photoURL", { required: true })}
+                    placeholder="Enter Your Photo URL"
+                    className="input-field"
+                  />
+                  {/* Display Errors */}
+                  {errors.photoURL && (
+                    <span className="text-red-600">PHoto URL is required</span>
+                  )}
+                </div>
                 {/* Submit Button */}
                 <input type="submit" value="Sign Up" className="submit-btn" />
               </form>
+
               {/* Bottom Content */}
               <div className="text-center mt-8">
                 {/* Redirect link to sign up page */}

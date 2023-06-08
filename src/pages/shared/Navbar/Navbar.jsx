@@ -42,7 +42,15 @@ const Navbar = () => {
         <div className="dropdown md:dropdown-end text-navy-blue">
           <label tabIndex={5} className="btn btn-ghost btn-circle avatar">
             <div className="w-9 h-9 rounded-full">
-              <img src={profileImg} alt="" className="" />
+              {user ? (
+                <>
+                  <img src={user.photoURL} alt={user.displayName} />
+                </>
+              ) : (
+                <>
+                  <img src={profileImg} alt="" />
+                </>
+              )}
             </div>
           </label>
           <ul
