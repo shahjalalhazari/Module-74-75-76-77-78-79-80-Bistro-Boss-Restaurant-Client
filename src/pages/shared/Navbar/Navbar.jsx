@@ -34,9 +34,14 @@ const Navbar = () => {
         <ActiveLink to="/shop/salads">Our Shop</ActiveLink>
       </li>
       <li>
-        <Link to="">
-          <img src={cart} alt="" className="h-11" />
-        </Link>
+        <div className="indicator relative">
+          <Link to="">
+            <span className="indicator-item badge bg-navy-blue absolute top-5 right-5">
+              0
+            </span>
+            <img src={cart} alt="" className="h-11" />
+          </Link>
+        </div>
       </li>
       <div className="flex items-center">
         <div className="dropdown md:dropdown-end text-navy-blue">
