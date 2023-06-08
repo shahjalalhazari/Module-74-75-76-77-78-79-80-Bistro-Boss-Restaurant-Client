@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import loginImg from "../../assets/others/authentication2.png";
 import bgImg from "../../assets/others/authentication.png";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 // React captcha
 import {
@@ -9,12 +10,15 @@ import {
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import SMAuthentication from "../shared/SMAuthentication/SMAuthentication";
+import { AuthContext } from "./../../providers/AuthProvider";
 
 const Login = () => {
   const captchaRef = useRef(null);
   const [allowLogin, setAllowLogin] = useState(true);
+
+  const { signIn } = useContext(AuthContext);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -23,16 +27,27 @@ const Login = () => {
     const password = form.password.value;
     const loginData = { email, password };
     console.log(loginData);
+    signIn(email, password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+    });
   };
 
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
 
-  const handleValidateCaptcha = () => {
-    const user_captcha_value = captchaRef.current.value;
+  const handleValidateCaptcha = (e) => {
+    const user_captcha_value = e.target.value;
     if (validateCaptcha(user_captcha_value) == true) {
       setAllowLogin(false);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Captcha Verified!!!",
+        showConfirmButton: false,
+        timer: 1000,
+      });
     } else {
       setAllowLogin(true);
     }
@@ -73,7 +88,7 @@ const Login = () => {
                     name="email"
                     placeholder="Type here"
                     className="input-field"
-                    // required
+                    required
                   />
                 </div>
                 {/* Password Field */}
@@ -86,25 +101,21 @@ const Login = () => {
                     name="password"
                     placeholder="Enter Your Password"
                     className="input-field"
-                    // required
+                    required
                   />
                 </div>
                 {/* Captcha Field */}
                 <div className="form-control mt-9">
                   <LoadCanvasTemplate />
                   <input
+                    onBlur={handleValidateCaptcha}
                     type="text"
                     name="captcha"
                     placeholder="Type captcha text here"
                     className="input-field mt-3"
                     ref={captchaRef}
                   />
-                  <button
-                    onClick={handleValidateCaptcha}
-                    className="btn btn-xs mt-2"
-                  >
-                    Verify Captcha
-                  </button>
+                  {/* <button className="btn btn-xs mt-2">Verify Captcha</button> */}
                 </div>
                 {/* Submit Button */}
                 <input
@@ -124,7 +135,7 @@ const Login = () => {
                   </Link>
                 </p>
                 {/* Social Media SignIn */}
-                <SMAuthentication/>
+                <SMAuthentication />
               </div>
             </div>
           </div>
