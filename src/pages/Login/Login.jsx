@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import loginImg from "../../assets/others/authentication2.png";
 import bgImg from "../../assets/others/authentication.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 // React captcha
@@ -16,20 +16,24 @@ import { AuthContext } from "./../../providers/AuthProvider";
 
 const Login = () => {
   const captchaRef = useRef(null);
-  const [allowLogin, setAllowLogin] = useState(true);
+  const [allowLogin, setAllowLogin] = useState(!false);
 
   const { signIn } = useContext(AuthContext);
+
+  // Redirect user after login
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    const loginData = { email, password };
-    console.log(loginData);
     signIn(email, password).then((result) => {
       const loggedUser = result.user;
-      console.log(loggedUser);
+      navigate(from, { replace: true });
     });
   };
 
@@ -40,7 +44,7 @@ const Login = () => {
   const handleValidateCaptcha = (e) => {
     const user_captcha_value = e.target.value;
     if (validateCaptcha(user_captcha_value) == true) {
-      setAllowLogin(false);
+      setAllowLogin(!true);
       Swal.fire({
         position: "top-end",
         icon: "success",
