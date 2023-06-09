@@ -57,7 +57,7 @@ const ItemCard = ({ item }) => {
     <div className="bg-[#f3f3f3]">
       <figure className="relative">
         <img src={image} alt={name} className="" />
-        <p className="absolute text-white bg-navy-blue py-1 px-3 top-0 right-0 mt-3 mr-3 text-lg">
+        <p className="absolute rounded-md text-white bg-navy-blue py-1 px-3 top-0 right-0 mt-3 mr-3 text-lg">
           ${price}
         </p>
       </figure>

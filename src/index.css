@@ -91,6 +91,8 @@
 .cover-sub-heading {
     @apply text-white uppercase inter mt-2;
 }
+/* --------------------------------- */
+
 
 /* Category Cover Style */
 .category-cover-heading {
@@ -100,10 +102,14 @@
 .category-cover-sub-heading {
     @apply text-white inter mt-2;
 }
+/* ------------------------- */
+
+
 /* React tabs style */
 .react-tabs__tab--selected {
     @apply text-yellow border-b-4 pb-1
 }
+/* ----------------------- */
 
 
 /* Login & Sing Up Style */
@@ -155,3 +161,18 @@
 .social-media {
     @apply border-2 rounded-full p-4 hover:text-[#D1A054];
 }
+/* ----------------------- */
+
+
+/******* Dashboard and Admin style *********/
+/* Dashboard Navbar */
+.active-dashboard-link {
+    color:#fff
+}
+.content-label {
+    @apply btn bg-golden border-0 drawer-button absolute right-6 lg:hidden;
+}
+.nav-content {
+    @apply w-64 md:w-72 pt-8 md:pt-12 px-6 h-full bg-golden cinzel text-black text-lg;
+}
+/* ------------------ */

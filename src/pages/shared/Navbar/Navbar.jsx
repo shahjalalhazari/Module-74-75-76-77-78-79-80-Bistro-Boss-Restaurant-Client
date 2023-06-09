@@ -37,7 +37,7 @@ const Navbar = () => {
       </li>
       <li>
         <div className="indicator relative">
-          <Link to="">
+          <Link to="/dashboard/cart">
             <span className="indicator-item badge bg-navy-blue absolute top-5 right-5">
               {cart?.length || 0}
             </span>
