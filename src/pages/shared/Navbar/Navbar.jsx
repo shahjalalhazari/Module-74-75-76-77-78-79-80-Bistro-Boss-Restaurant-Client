@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
-import cart from "../../../assets/cart.png";
+import cartImg from "../../../assets/cart.png";
 import textLogo from "../../../assets/text-logo.png";
 import ActiveLink from "../../../components/ActiveLink/ActiveLink";
 
 import profileImg from "../../../assets/others/profile.png";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import useCart from "../../../hooks/useCart";
 
 const Navbar = () => {
   const { user, LogOut } = useContext(AuthContext);
+  const [cart] = useCart();
 
   const handleLogOut = () => {
     LogOut()
@@ -37,9 +39,9 @@ const Navbar = () => {
         <div className="indicator relative">
           <Link to="">
             <span className="indicator-item badge bg-navy-blue absolute top-5 right-5">
-              0
+              {cart?.length || 0}
             </span>
-            <img src={cart} alt="" className="h-11" />
+            <img src={cartImg} alt="" className="h-11" />
           </Link>
         </div>
       </li>
