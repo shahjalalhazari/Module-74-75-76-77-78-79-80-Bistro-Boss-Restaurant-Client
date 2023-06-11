@@ -43,8 +43,8 @@ const Testimonials = () => {
               <p className="text-6xl mx-auto">
                 <FaQuoteLeft />
               </p>
-              <p>{review.details}</p>
-              <h3 className="text-3xl text-yellow uppercase font-medium">
+              <p className="text-base md:text-lg">{review.details}</p>
+              <h3 className="text-xl md:text-3xl text-yellow uppercase font-medium">
                 {review.name}
               </h3>
             </div>

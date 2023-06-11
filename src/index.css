@@ -16,16 +16,19 @@
 .inter {
     font-family: 'Inter', sans-serif;
 }
+/* ------------------------------ */
 
 
 /* Heading Styles */
 .heading {
-    @apply text-2xl md:text-4xl uppercase mt-4 mb-12 py-6 border-y-4 border-gray w-9/12 md:w-1/2 mx-auto
+    @apply text-2xl md:text-4xl uppercase mt-4 mb-8 md:mb-12 py-4 md:py-6 border-y-4 border-gray w-9/12 md:w-1/2 mx-auto
 }
 
 .sub-heading {
     @apply text-yellow text-lg;
 }
+/* ------------------------- */
+
 
 /* Button Styles */
 .primary-btn {
@@ -39,6 +42,7 @@
 .white-btn {
     @apply text-white border-b-4 border-white text-xl uppercase px-[30px] py-5 rounded-lg hover:text-navy-blue hover:bg-white
 }
+/* -------------------------- */
 
 
 
@@ -62,6 +66,7 @@
 .two-cols {
     @apply grid md:grid-cols-2 gap-6;
 }
+/* ------------------------------ */
 
 
 
@@ -170,9 +175,9 @@
     color:#fff
 }
 .content-label {
-    @apply btn bg-golden border-0 drawer-button absolute right-6 lg:hidden;
+    @apply btn bg-golden border-0 drawer-button absolute top-6 right-6 lg:hidden;
 }
 .nav-content {
     @apply w-64 md:w-72 pt-8 md:pt-12 px-6 h-full bg-golden cinzel text-black text-lg;
 }
-/* ------------------ */
+/* --------------------------- */

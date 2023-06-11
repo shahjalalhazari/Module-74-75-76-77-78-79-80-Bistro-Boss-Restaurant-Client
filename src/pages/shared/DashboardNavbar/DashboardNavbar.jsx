@@ -31,7 +31,7 @@ const DashboardNavbar = () => {
         </ActiveDashboardLink>
       </li>
       <li>
-        <ActiveDashboardLink to="/dashboard/cart">
+        <ActiveDashboardLink to="/dashboard/my-cart">
           <FaShoppingCart /> My Cart
         </ActiveDashboardLink>
       </li>
