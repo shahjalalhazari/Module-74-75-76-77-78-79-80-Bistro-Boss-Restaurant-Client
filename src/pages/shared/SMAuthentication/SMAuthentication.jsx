@@ -1,8 +1,51 @@
 // This is component is for user authentication with Social Media app. Such as, facebook, google, github
 
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useContext } from "react";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
+
+// Google auth providers
+const googleProvider = new GoogleAuthProvider();
 
 const SMAuthentication = () => {
+  // Getting firebase auth Auth Context
+  const { auth, setLoading } = useContext(AuthContext);
+
+  // Redirect after signin
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  // Sign In with Google
+  const handleGoogleSignIn = () => {
+    setLoading(true);
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        // const loggedUser = result.user;
+        const savedUser = {
+          name: result.user.displayName,
+          email: result.user.email,
+        };
+        fetch("http://localhost:3000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(savedUser),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            navigate(from, { replace: true });
+          });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
+
   return (
     <>
       <p className="divider-text">Or sign in with</p>
@@ -10,7 +53,7 @@ const SMAuthentication = () => {
         <button className="social-media">
           <FaFacebookF />
         </button>
-        <button className="social-media">
+        <button onClick={handleGoogleSignIn} className="social-media">
           <FaGoogle />
         </button>
         <button className="social-media">
