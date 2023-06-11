@@ -2,7 +2,7 @@
 import { Helmet } from "react-helmet-async";
 import loginImg from "../../assets/others/authentication2.png";
 import bgImg from "../../assets/others/authentication.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, json, useNavigate } from "react-router-dom";
 import SMAuthentication from "../shared/SMAuthentication/SMAuthentication";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
@@ -22,17 +22,37 @@ const SignUp = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    createUser(data.email, data.password).then((result) => {
+    const name = data.name;
+    const email = data.email;
+    const password = data.password;
+    const photoURL = data.photoURL;
+    createUser(email, password).then((result) => {
       const loggedUser = result.user;
-      updateUserProfile(data.name, data.photoURL).then(() => {
-        reset();
-        Swal.fire({
-          title: "Success!",
-          text: "Account Created Successfully",
-          icon: "success",
-          confirmButtonText: "Cool",
-        });
-        navigate("/");
+
+      updateUserProfile(name, photoURL).then(() => {
+        // This one is for make user role.
+        const savedUser = { name, email };
+        fetch("http://localhost:3000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(savedUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "top-end",
+                title: "Account Created Successfully",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1000,
+              });
+              navigate("/");
+            }
+          });
       });
     });
   };

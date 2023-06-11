@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
   if (loading) {
     return (
       <div className="my-container">
-        <progress className="progress w-56"></progress>
+        <progress className="progress w-full"></progress>
       </div>
     );
   }
