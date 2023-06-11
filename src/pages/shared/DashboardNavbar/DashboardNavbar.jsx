@@ -10,8 +10,11 @@ import {
 import ActiveDashboardLink from "../../../components/ActiveDashboardLink/ActiveDashboardLink";
 import { GiHamburgerMenu, GiStarsStack } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import useCart from "../../../hooks/useCart";
 
 const DashboardNavbar = () => {
+  const [cart] = useCart();
+
   return (
     <ul className="menu mt-6 md:mt-10">
       {/* Sidebar content here */}
@@ -33,6 +36,9 @@ const DashboardNavbar = () => {
       <li>
         <ActiveDashboardLink to="/dashboard/my-cart">
           <FaShoppingCart /> My Cart
+          <span className="indicator-item badge badge-lg px-4 text-white  bg-navy-blue">
+            {cart?.length || 0}
+          </span>
         </ActiveDashboardLink>
       </li>
       <li>
