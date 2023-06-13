@@ -4,7 +4,7 @@ import loginImg from "../../assets/others/authentication2.png";
 import bgImg from "../../assets/others/authentication.png";
 import { Link, json, useNavigate } from "react-router-dom";
 import SMAuthentication from "../shared/SMAuthentication/SMAuthentication";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 import { useForm } from "react-hook-form";
@@ -13,6 +13,8 @@ import Swal from "sweetalert2";
 const SignUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
+  // store error messages
+  const [error, setError] = useState("");
 
   const {
     register,
@@ -26,35 +28,40 @@ const SignUp = () => {
     const email = data.email;
     const password = data.password;
     const photoURL = data.photoURL;
-    createUser(email, password).then((result) => {
-      const loggedUser = result.user;
+    createUser(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
 
-      updateUserProfile(name, photoURL).then(() => {
-        // This one is for make user role.
-        const savedUser = { name, email };
-        fetch("http://localhost:3000/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(savedUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.insertedId) {
-              reset();
-              Swal.fire({
-                position: "top-end",
-                title: "Account Created Successfully",
-                icon: "success",
-                showConfirmButton: false,
-                timer: 1000,
-              });
-              navigate("/");
-            }
-          });
+        updateUserProfile(name, photoURL).then(() => {
+          // This one is for make user role.
+          const savedUser = { name, email };
+          fetch("http://localhost:3000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(savedUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: "top-end",
+                  title: "Account Created Successfully",
+                  icon: "success",
+                  showConfirmButton: false,
+                  timer: 1000,
+                });
+                navigate("/");
+              }
+            });
+        });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
       });
-    });
   };
   return (
     <div>
@@ -165,9 +172,11 @@ const SignUp = () => {
                   />
                   {/* Display Errors */}
                   {errors.photoURL && (
-                    <span className="text-red-600">PHoto URL is required</span>
+                    <span className="text-red-600">Photo URL is required</span>
                   )}
                 </div>
+                {/* Display error message */}
+                <p className="text-sm text-red-600">{error}</p>
                 {/* Submit Button */}
                 <input type="submit" value="Sign Up" className="submit-btn" />
               </form>

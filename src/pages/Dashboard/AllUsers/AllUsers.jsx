@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { FaTrashAlt, FaUsers } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 const AllUsers = () => {
   const { data: users = [], refetch } = useQuery(["users"], async () => {
@@ -9,9 +10,29 @@ const AllUsers = () => {
     return res.json();
   });
 
-  const handelUserDelete = user => {
-    
-  }
+  const handelCreateAdmin = (user) => {
+    console.log(user);
+    fetch(`http://localhost:3000/users/admin/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${user.name} is now Admin`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
+
+  const handelUserDelete = (user) => {};
+
   return (
     <>
       <Helmet>
@@ -29,7 +50,7 @@ const AllUsers = () => {
         </div>
         <div className="overflow-x-auto">
           {/* User Table */}
-          <table className="table w-full mt-10 rounded-xl">
+          <table className="table table-zebra w-full mt-10 rounded-xl">
             <thead>
               <tr className="uppercase bg-golden">
                 <th className="bg-golden text-white py-5 text-base"></th>
@@ -46,9 +67,16 @@ const AllUsers = () => {
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>
-                    <button className="btn bg-golden border-0">
-                      <FaUsers className="text-xl" />
-                    </button>
+                    {user.role === "admin" ? (
+                      "Admin"
+                    ) : (
+                      <button
+                        onClick={() => handelCreateAdmin(user)}
+                        className="btn bg-golden border-0"
+                      >
+                        <FaUsers className="text-xl" />
+                      </button>
+                    )}
                   </td>
                   <td>
                     <button

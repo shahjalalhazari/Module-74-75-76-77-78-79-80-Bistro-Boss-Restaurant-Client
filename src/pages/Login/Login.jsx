@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Helmet } from "react-helmet-async";
 import loginImg from "../../assets/others/authentication2.png";
 import bgImg from "../../assets/others/authentication.png";
@@ -17,6 +18,7 @@ import { AuthContext } from "./../../providers/AuthProvider";
 const Login = () => {
   const captchaRef = useRef(null);
   const [allowLogin, setAllowLogin] = useState(!false);
+  const [error, setError] = useState("");
 
   const { signIn } = useContext(AuthContext);
 
@@ -31,10 +33,15 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    signIn(email, password).then((result) => {
-      const loggedUser = result.user;
-      navigate(from, { replace: true });
-    });
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
   };
 
   useEffect(() => {
@@ -119,8 +126,9 @@ const Login = () => {
                     className="input-field mt-3"
                     ref={captchaRef}
                   />
-                  {/* <button className="btn btn-xs mt-2">Verify Captcha</button> */}
                 </div>
+                {/* Display error message */}
+                <p className="text-sm text-red-600">{error}</p>
                 {/* Submit Button */}
                 <input
                   disabled={allowLogin}
