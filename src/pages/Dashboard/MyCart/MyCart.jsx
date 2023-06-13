@@ -34,7 +34,7 @@ const MyCart = () => {
     });
   };
   return (
-    <div>
+    <>
       <Helmet>
         <title>My Cart | Bistro Boss Restaurant</title>
       </Helmet>
@@ -90,7 +90,7 @@ const MyCart = () => {
           </table>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
