@@ -11,16 +11,17 @@ import {
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SMAuthentication from "../shared/SMAuthentication/SMAuthentication";
 import { AuthContext } from "./../../providers/AuthProvider";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const captchaRef = useRef(null);
   const [allowLogin, setAllowLogin] = useState(!false);
   const [error, setError] = useState("");
 
-  const { signIn } = useContext(AuthContext);
+  const { signIn } = useAuth();
 
   // Redirect user after login
   const navigate = useNavigate();

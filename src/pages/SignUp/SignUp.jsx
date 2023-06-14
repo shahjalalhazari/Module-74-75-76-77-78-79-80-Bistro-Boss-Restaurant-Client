@@ -4,14 +4,14 @@ import loginImg from "../../assets/others/authentication2.png";
 import bgImg from "../../assets/others/authentication.png";
 import { Link, json, useNavigate } from "react-router-dom";
 import SMAuthentication from "../shared/SMAuthentication/SMAuthentication";
-import { useContext, useState } from "react";
-import { AuthContext } from "../../providers/AuthProvider";
+import { useState } from "react";
 
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const SignUp = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
   // store error messages
   const [error, setError] = useState("");

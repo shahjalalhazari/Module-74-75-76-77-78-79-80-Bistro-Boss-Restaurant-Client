@@ -4,12 +4,11 @@ import textLogo from "../../../assets/text-logo.png";
 import ActiveLink from "../../../components/ActiveLink/ActiveLink";
 
 import profileImg from "../../../assets/others/profile.png";
-import { useContext } from "react";
-import { AuthContext } from "../../../providers/AuthProvider";
 import useCart from "../../../hooks/useCart";
+import useAuth from "../../../hooks/useAuth";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useAuth();
   const [cart] = useCart();
 
   const handleLogOut = () => {

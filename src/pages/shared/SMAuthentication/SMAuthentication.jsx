@@ -1,17 +1,17 @@
 // This is component is for user authentication with Social Media app. Such as, facebook, google, github
 
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { useContext } from "react";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
-import { AuthContext } from "../../../providers/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 // Google auth providers
 const googleProvider = new GoogleAuthProvider();
 
 const SMAuthentication = () => {
   // Getting firebase auth Auth Context
-  const { auth, setLoading } = useContext(AuthContext);
+  const { auth, setLoading } = useAuth();
+
 
   // Redirect after signin
   const navigate = useNavigate();
