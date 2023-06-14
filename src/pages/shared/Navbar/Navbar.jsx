@@ -9,11 +9,11 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import useCart from "../../../hooks/useCart";
 
 const Navbar = () => {
-  const { user, LogOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [cart] = useCart();
 
   const handleLogOut = () => {
-    LogOut()
+    logOut()
       .then(() => {})
       .then((error) => console.log(error));
   };
