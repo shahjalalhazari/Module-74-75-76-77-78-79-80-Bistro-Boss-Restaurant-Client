@@ -15,12 +15,14 @@ import ActiveDashboardLink from "../../../components/ActiveDashboardLink/ActiveD
 import { GiHamburgerMenu, GiStarsStack } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
+import useAdmin from "../../../hooks/useAdmin";
 
 const DashboardNavbar = () => {
   const [cart] = useCart();
 
   // TODO: Load data from server to check user role.
-  const isAdmin = true;
+  // const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <ul className="menu mt-6 md:mt-10 text-xl">
