@@ -12,16 +12,22 @@ const ItemCard = ({ item }) => {
   const [, refetch] = useCart();
 
 
-  const handleAddToCart = (item) => {
-    console.log(item);
+  const handleAddToCart = () => {
     if (user && user.email) {
-      const cartItem = {menuItemId: _id, name, image, price, recipe, email: user.email}
+      const cartItem = {
+        menuItemId: _id,
+        name,
+        image,
+        price,
+        recipe,
+        email: user.email,
+      };
       fetch("http://localhost:3000/carts", {
         method: "POST",
         headers: {
-          "content-type": "application/json"
+          "content-type": "application/json",
         },
-        body: JSON.stringify(cartItem)
+        body: JSON.stringify(cartItem),
       })
         .then((res) => res.json())
         .then((data) => {
