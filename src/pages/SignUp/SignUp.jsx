@@ -31,6 +31,7 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
+        console.log(loggedUser);
 
         updateUserProfile(name, photoURL).then(() => {
           // This one is for make user role.
