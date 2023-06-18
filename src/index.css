@@ -139,7 +139,7 @@
 }
 
 .input-field {
-    @apply py-5 pl-5 bg-white border-[1px] border-[#d0d0d0] rounded-lg;
+    @apply py-5 pl-5 text-lg bg-white border-[1px] border-[#d0d0d0] rounded-lg;
 }
 
 .captcha-field {
@@ -181,3 +181,8 @@
     @apply w-64 md:w-72 pt-8 md:pt-12 px-6 h-full bg-golden cinzel text-black text-lg;
 }
 /* --------------------------- */
+/* Add Item */
+.add-item-btn {
+    background: linear-gradient(90deg, #835D23 0%, #B58130 100%);
+    @apply py-4 px-7 text-white text-xl font-bold mt-8
+}
