@@ -5,6 +5,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import "./CheckoutForm.css";
 
 const CheckoutForm = ({ cart, price }) => {
   const { user } = useAuth();
@@ -19,9 +20,11 @@ const CheckoutForm = ({ cart, price }) => {
   const [transactionId, setTransactionId] = useState("");
 
   useEffect(() => {
-    axiosSecure.post("/create-payment-intent", { price }).then((res) => {
-      setClientSecret(res.data.clientSecret);
-    });
+    if (price > 0) {
+      axiosSecure.post("/create-payment-intent", { price }).then((res) => {
+        setClientSecret(res.data.clientSecret);
+      });
+    }
   }, [price, axiosSecure]);
 
   const handleSubmit = async (event) => {
@@ -73,25 +76,28 @@ const CheckoutForm = ({ cart, price }) => {
     setProcessing(false);
     if (paymentIntent?.status === "succeeded") {
       setTransactionId(paymentIntent.id);
-      // save payment info to server after  success full payment
+      // save payment info to server after success full payment
       const payment = {
         email: user?.email,
         transactionId: transactionId.id,
         price,
+        date: new Date(),
         quantity: cart.length,
-        items: cart.map((item) => item._id),
+        cartItems: cart.map((item) => item._id),
+        menuItems: cart.map((item) => item.menuItemId),
         itemNames: cart.map((item) => item.name),
+        status: "pending",
       };
 
       axiosSecure.post("/payments", payment).then((res) => {
         console.log(res.data);
-        if (res.data.insertedId) {
+        if (res.data.InsertResult.insertedId) {
           Swal.fire({
             position: "top-end",
             icon: "success",
             title: "Your Payment has been completed successfully.",
             showConfirmButton: false,
-            timer: 1000,
+            timer: 2500,
           });
           navigate("/");
         }
@@ -129,7 +135,7 @@ const CheckoutForm = ({ cart, price }) => {
       )}
       <button
         type="submit"
-        className="mt-16 bg-[#570DF8] text-white rounded-lg py-5 px-44 text-lg text-center font-bold"
+        className="payment-submit-btn mt-16 bg-[#570DF8] text-white rounded-lg py-5 px-44 text-lg text-center font-bold"
         disabled={!stripe || !clientSecret || processing}
       >
         Pay
