@@ -6,10 +6,12 @@ import ActiveLink from "../../../components/ActiveLink/ActiveLink";
 import profileImg from "../../../assets/others/profile.png";
 import useCart from "../../../hooks/useCart";
 import useAuth from "../../../hooks/useAuth";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [cart] = useCart();
+  const [isAdmin] = useAdmin();
 
   const handleLogOut = () => {
     logOut()
@@ -26,7 +28,9 @@ const Navbar = () => {
         <ActiveLink to="/contact">Contact Us</ActiveLink>
       </li>
       <li>
-        <ActiveLink to="/dashboard">Dashboard</ActiveLink>
+        <ActiveLink to={isAdmin ? "/dashboard/admin" : "/dashboard/user"}>
+          Dashboard
+        </ActiveLink>
       </li>
       <li>
         <ActiveLink to="/menu">Our Menu</ActiveLink>

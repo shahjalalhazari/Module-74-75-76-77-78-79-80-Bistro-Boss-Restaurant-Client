@@ -186,3 +186,25 @@
     background: linear-gradient(90deg, #835D23 0%, #B58130 100%);
     @apply py-4 px-7 text-white text-xl font-bold mt-8
 }
+/* ------------------- */
+
+/* Admin Home Style */
+.data-card {
+    @apply py-8 w-full text-navy-blue flex items-center justify-center gap-x-6 rounded-lg;
+}
+
+.revenue-card {
+    background: linear-gradient(90deg, #BB34F5 0%, #FCDBFF 100%);
+}
+
+.customer-card {
+    background: linear-gradient(90deg, #D3A256 0%, #FDE8C0 100%);
+}
+
+.product-card {
+    background: linear-gradient(90deg, #FE4880 0%, #FECDE9 100%);
+}
+
+.order-card {
+    background: linear-gradient(90deg, #6AAEFF 0%, #B6F7FF 100%);
+}

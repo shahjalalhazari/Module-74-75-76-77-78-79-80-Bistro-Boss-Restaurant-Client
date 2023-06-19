@@ -14,7 +14,7 @@ const DashboardLayout = () => {
           <GiHamburgerMenu />
         </label>
         {/* Page content */}
-        <div className="my-16 md:my-12 mx-6 md:ml-[150px] md:mr-[170px]">
+        <div className="my-16 md:my-12 mx-6 md:ml-[120px] md:mr-[150px]">
           <Outlet></Outlet>
         </div>
       </div>
@@ -22,7 +22,7 @@ const DashboardLayout = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <div className="nav-content">
           {/* Dashboard Logo */}
-          <Link to="/dashboard">
+          <Link to="/">
             <img src={logo} alt="" className="ml-3" />
           </Link>
           {/* Dashboard Nav Items */}
